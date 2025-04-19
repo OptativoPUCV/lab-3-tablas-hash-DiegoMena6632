@@ -85,8 +85,23 @@ HashMap * createMap(long capacity)
     return map;
 }
 
-void eraseMap(HashMap * map,  char * key) {    
-
+void eraseMap(HashMap * map,  char * key) {
+    int pocicion = hash(key, map->capacity);
+    Pair * aux = map->buckets[pocicion];
+    if(aux == NULL) return;
+    while(aux != NULL) {
+        if(is_equal(aux->key,key)) {
+            free(aux->key);
+            free(aux->value);
+            free(aux);
+            map->buckets[pocicion] = NULL;
+            map->size--;
+            return;
+        }
+        pocicion++;
+        if(pocicion >= map->capacity) pocicion = 0;
+        aux = map->buckets[pocicion];
+    }
 }
 
 Pair * searchMap(HashMap * map,  char * key) {
