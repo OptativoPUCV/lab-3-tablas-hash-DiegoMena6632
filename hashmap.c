@@ -90,7 +90,7 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {
-    int pocicion = has(key, map->capacity);
+    int pocicion = hash(key, map->capacity);
     Pair * aux = map->buckets[pocicion];
     while(aux != NULL) {
         if(is_equal(aux->key,key)) {
