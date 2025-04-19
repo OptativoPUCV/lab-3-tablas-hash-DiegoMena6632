@@ -16,3 +16,14 @@ Sat, Apr 19, 2025  5:20:13 PM:
  tests:  5|4
 total_score: 30/70
 1faeac8
+Sat, Apr 19, 2025  6:05:08 PM: 
+ hashmap.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'searchMap':
+hashmap.c:93:20: error: implicit declaration of function 'has' [-Werror=implicit-function-declaration]
+     int pocicion = has(key, map->capacity);
+                    ^~~
+cc1.exe: all warnings being treated as errors
+e578017
